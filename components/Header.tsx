@@ -15,13 +15,13 @@ function Header() {
             loading="eager"
             className="w-27.5 h-auto py-2"
           />
+        </div>
         <div className="flex ">
           <ImLocation2 size={25} />
           <div className="w-20">
             <h2>Deliver to</h2>
             <h2>Nepal</h2>
           </div>
-        </div>
         </div>
         <div className="w-3/5">
           <input
