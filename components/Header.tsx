@@ -4,49 +4,62 @@ import { ImLocation2 } from "react-icons/im";
 
 function Header() {
   return (
-    <div className="bg-[#131921] text-white w-full ">
-      <div className="flex items-center">
-        <div className="w-1/5 mx-3">
+    <div className="bg-[#131921] py-2 text-white w-full">
+      <div className="flex items-center gap-4 px-3 py-1">
+
+        {/* Logo */}
+        <div className="shrink-0">
           <Image
             alt="Amazon website logo"
             src="/amazon-logo-2.webp"
             width={100}
             height={50}
             loading="eager"
-            className="w-27.5 h-auto py-2"
+            className="w-[110px] h-auto"
           />
         </div>
-        <div className="flex ">
+
+        {/* Location */}
+        <div className="flex items-center shrink-0">
           <ImLocation2 size={25} />
-          <div className="w-20">
-            <h2>Deliver to</h2>
-            <h2>Nepal</h2>
+
+          <div className="ml-1">
+            <p className="text-xs">Deliver to</p>
+            <p className="font-medium">Nepal</p>
           </div>
         </div>
-        <div className="w-3/5">
+
+        {/* Search */}
+        <div className="flex-1">
           <input
-            className="bg-white w-full text-black  outline-none  focus:border-black border-2 p-1 rounded-lg h-10"
+            className="bg-white w-full text-black outline-none border-2 border-transparent focus:border-black p-1 rounded-lg h-10"
             type="text"
-            placeholder="Seach for the products"
+            placeholder="Search for the products"
           />
         </div>
-        <div className="flex items-center">
-        <div className="m-3 w-30">
-          <h2 className="text-xs">Hello, Rahul</h2>
-          <h2 className="font-medium text-sm">Account & Lists</h2>
+
+        {/* Account */}
+        <div className="shrink-0">
+          <p className="text-xs">Hello, Rahul</p>
+          <p className="font-medium text-sm">Account & Lists</p>
         </div>
-        <div className="w-20">
+
+        {/* Orders */}
+        <div className="shrink-0">
           <p className="text-xs">Returns</p>
-          <h2 className="font-medium text-sm">& Orders</h2>
+          <p className="font-medium text-sm">& Orders</p>
         </div>
-        <div className="flex items-center mx-5">
-          <p>0</p>
-          <div>
-          <LuShoppingCart  className="w-20 h-10" />
+
+        {/* Cart */}
+        <div className="flex items-center gap-1 shrink-0">
+          <div className="relative">
+            <p className="absolute -top-2 left-4 text-sm">0</p>
+            <LuShoppingCart className="w-10 h-10" />
           </div>
-          <h1>cart</h1>
+
+          <p>Cart</p>
         </div>
-        </div>
+
       </div>
     </div>
   );
