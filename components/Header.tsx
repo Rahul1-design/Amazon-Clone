@@ -15,7 +15,7 @@ function Header() {
             width={100}
             height={50}
             loading="eager"
-            className="w-[110px] h-auto"
+            className="w-27.5 h-auto"
           />
         </div>
 
@@ -56,7 +56,6 @@ function Header() {
             <p className="absolute -top-2 left-4 text-sm">0</p>
             <LuShoppingCart className="w-10 h-10" />
           </div>
-
           <p>Cart</p>
         </div>
 
