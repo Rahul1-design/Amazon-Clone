@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { LuShoppingCart } from "react-icons/lu";
 import { ImLocation2 } from "react-icons/im";
+import { IoSearchSharp } from "react-icons/io5";
 
 function Header() {
   return (
     <div className="bg-[#131921] py-2 text-white w-full">
       <div className="flex items-center gap-4 px-3 py-1">
-
         {/* Logo */}
         <div className="shrink-0">
           <Image
@@ -30,15 +30,23 @@ function Header() {
         </div>
 
         {/* Search */}
-        <div className="flex-1">
-          <input
-            className="bg-white w-full text-black outline-none border-2 border-transparent focus:border-black p-1 rounded-lg h-10"
-            type="text"
-            placeholder="Search for the products"
-          />
+        <div className="flex flex-1 relative items-center">
+          <div className="flex-1">
+            <input
+              className="bg-white w-full text-black outline-none  border-transparent focus:border-black p-1 rounded-lg h-10"
+              type="text"
+              placeholder="Search for the products"
+            />
+          </div>
+
+          <div className="absolute right-0 bg-yellow-400 hover:brightness-90 hover:cursor-pointer rounded-r-lg h-10 w-10 flex justify-center items-center">
+            <IoSearchSharp size={25}  className=" text-black  " />
+          </div>
         </div>
 
         {/* Account */}
+        <div className="flex gap-10">
+
         <div className="shrink-0">
           <p className="text-xs">Hello, Rahul</p>
           <p className="font-medium text-sm">Account & Lists</p>
@@ -58,7 +66,7 @@ function Header() {
           </div>
           <p>Cart</p>
         </div>
-
+        </div>
       </div>
     </div>
   );
