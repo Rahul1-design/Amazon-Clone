@@ -23,6 +23,7 @@ function Header() {
   const [query, setQuery] = useState<string>("");
   return (
     <>
+      {/*  Top Header */}
       <div className="bg-[#131921] py-2 text-white w-full">
         <div className="flex items-center gap-4 px-3 py-1">
           {/* Logo */}
@@ -91,6 +92,7 @@ function Header() {
           </div>
         </div>
       </div>
+      {/* Buttom header */}
       <div className="bg-[#232F3E] text-white flex items-center justify-between h-11 gap-7">
         <div className="flex items-center">
           {itemList.map((item, index) => {
