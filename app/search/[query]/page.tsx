@@ -1,14 +1,11 @@
+"use client";
+
+import { useParams } from "next/navigation";
 import React from "react";
 
-type pageProps = {
-  params: Promise<{
-    query: string;
-  }>;
-};
-
-const page = async ({ params }: pageProps) => {
-  const { query } = await params;
+const Page = () => {
+  const { query } = useParams();
   return <div>{query}</div>;
 };
 
-export default page;
+export default Page;
