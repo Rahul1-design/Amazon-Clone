@@ -7,6 +7,7 @@ import { IoSearchSharp } from "react-icons/io5";
 import Link from "next/link";
 import { FiMenu } from "react-icons/fi";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const itemList = [
   "All",
@@ -20,6 +21,14 @@ const itemList = [
 ];
 
 function Header() {
+  const router = useRouter();
+  const homePage = () => {
+    router.push("/");
+  };
+  const searching = () => {
+    if (!query.trim()) return;
+    router.push(`/search/${encodeURIComponent(query.trim())}`);
+  };
   const [query, setQuery] = useState<string>("");
   return (
     <>
@@ -33,6 +42,7 @@ function Header() {
               src="/amazon-logo-2.webp"
               width={100}
               height={50}
+              onClick={homePage}
               loading="eager"
               className="w-27.5 h-auto"
             />
@@ -53,6 +63,9 @@ function Header() {
             <div className="flex-1">
               <input
                 value={query}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") return searching();
+                }}
                 onChange={(e) => setQuery(e.target.value)}
                 className="bg-white w-full text-black outline-none  border-transparent focus:border-black p-1 rounded-md h-10 pl-3"
                 type="text"
@@ -61,7 +74,7 @@ function Header() {
             </div>
 
             <div
-              onClick={() => console.log(query)}
+              onClick={searching}
               className="absolute right-0 bg-yellow-400 hover:brightness-90 hover:cursor-pointer rounded-r-md h-10 w-10 flex justify-center items-center"
             >
               <IoSearchSharp size={25} className=" text-black  " />
@@ -100,7 +113,7 @@ function Header() {
               <Link
                 key={index}
                 href={`/${item}`}
-                className="flex items-center gap-2 hover:border border border-transparent hover:border-white p-2     "
+                className="flex items-center gap-2 hover:border border border-transparent hover:border-white p-2 whitespace-nowrap shrink-0 max-md:text-sm"
               >
                 {item === "All" && <FiMenu size={22} />}
                 {item}
@@ -109,7 +122,7 @@ function Header() {
           })}
         </div>
         <div className="mr-5">
-          <h1 className="text-yellow-400 font-lg font-semibold cursor-pointer hover:underline">
+          <h1 className="text-yellow-400 font-lg font-semibold cursor-pointer hover:underline whitespace-nowrap max-md:text-sm">
             Sign Out
           </h1>
         </div>
